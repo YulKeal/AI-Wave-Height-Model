@@ -10,7 +10,9 @@ heights in various marine regions, including the Black Sea, Northwest Pacific, a
 This model leverages state-of-the-art deep learning techniques to forecast wave heights with high precision. By integrating the U-Net architecture, 
 renowned for its excellence in image segmentation tasks, with Earthformer models tailored for spatiotemporal data analysis, 
 our framework can effectively capture complex patterns and dependencies in oceanic wave dynamics.
+The animation below gives the SWH prediction results of the AI model on the test set compared to the ERA5 dataset.
 
+![Global](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/gobal.gif)
 
 
 
