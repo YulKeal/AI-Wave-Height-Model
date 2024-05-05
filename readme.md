@@ -14,7 +14,7 @@ The animation below gives the SWH prediction results of the AI model on the test
 
 ![Global](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif)
 
-
+![Blacksea](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif)
 
 
 ## DataSets
