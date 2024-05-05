@@ -12,7 +12,7 @@ renowned for its excellence in image segmentation tasks, with Earthformer models
 our framework can effectively capture complex patterns and dependencies in oceanic wave dynamics.
 The animation below gives the SWH prediction results of the AI model on the test set compared to the ERA5 dataset.
 
-![Global](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/gobal.mp4)
+![Global](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif)
 
 
 
