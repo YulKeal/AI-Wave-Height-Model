@@ -25,6 +25,7 @@ The animation below gives the SWH prediction results of the AI model on the test
 | [Black Sea Waves Analysis and Forecast](https://data.marine.copernicus.eu/product/BLKSEA_ANALYSISFORECAST_WAV_007_003/description) |10m u-component of wind、10m v-component of wind、Significant height of combined wind waves and swell|
 
 ## Study Region
+![Study Region](https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/f1.jpg)
 | Region| Latitude and longitude range|Spatial and temporal resolution|Source of data sets| Training data vintage division (Train/Val/Test)|
 |:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 |Black Sea |40.5°N - 47°N<br>27.25°E - 42°E|0.05° x 0.05°,	Hourly|Wind data from ERA5, Wave data from BSWAF|2010-2019/2022/2020|
