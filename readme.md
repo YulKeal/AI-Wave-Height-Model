@@ -20,6 +20,10 @@ The animation below gives the SWH prediction results of the AI model on the test
   <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif" alt="Blacksea" width="500"/>
 </p>
 
+<p align="center">
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif.gif" alt="pacificocean.gif" width="500"/>
+</p>
+
 ## DataSets
 
 | DataSet Name                                                                      | Parameters Used|
