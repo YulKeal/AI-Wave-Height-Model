@@ -21,7 +21,7 @@ The animation below gives the SWH prediction results of the AI model on the test
 </p>
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif.gif" alt="pacificocean.gif" width="500"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif" alt="pacificocean.gif" width="500"/>
 </p>
 
 ## DataSets
