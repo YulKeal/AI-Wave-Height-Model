@@ -41,7 +41,7 @@ The animation below gives some of the results of a visual comparison of the AI m
 </p>
 
 <div align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif" alt="Blacksea" width="270" style="display: inline-block; margin-right: 20px;"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif" alt="Blacksea" width="280" style="display: inline-block; margin-right: 20px;"/>
   <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif" alt="Pacificocean" width="480" style="display: inline-block;"/>
 </div>
 
