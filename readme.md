@@ -13,15 +13,15 @@ our framework can effectively capture complex patterns and dependencies in ocean
 The animation below gives the SWH prediction results of the AI model on the test set compared to the ERA5 dataset.
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif" alt="Global" width="500"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif" alt="Global" width="600"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif" alt="Blacksea" width="500"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/blacksea.gif" alt="Blacksea" width="600"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif" alt="pacificocean.gif" width="800"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/pacificocean.gif" alt="pacificocean.gif" width="600"/>
 </p>
 
 ## DataSets
