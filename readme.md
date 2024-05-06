@@ -4,7 +4,7 @@
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-WeightsFile-blue?logo=HuggingFace)](https://huggingface.co/YulKeal/AI-Wave-Height-Model/tree/main)
 
 AI Wave Height Model is an advanced deep learning framework that combines the power of U-Net architecture with Earthformer models to achieve accurate predictions of wave 
-heights in various marine regions, including the Black Sea, Northwest Pacific, and Global Ocean，using only wind field data.
+heights in various marine regions, including the Black Sea, Northwest Pacific, and Global Ocean,using only wind field data.
 
 ## Introduction
 Drawing upon the intrinsic relationship between wind dynamics and wave generation, this research introduces an AI-driven framework tailored for predicting significant wave heights (SWH) on a global or regional scale. Given its paramount importance in oceanographic studies and the availability of high-fidelity global observations from satellite altimeters, our focus is solely directed towards SWH modeling.
