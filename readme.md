@@ -48,13 +48,78 @@ The animation below gives some of the results of a visual comparison of the AI m
 
 ## Model Weights File Definition
 
-| Filename  | Description|spatial and temporal resolution|Input data shape|Output data shape
-|:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-|1|1|1|([batch,72,131,296],[batch,72,131,296]) |[batch,131,296]|
-|1|1|1|1|1|
-|1|1|1|[batch,240,281,760，2]) |[batch,1,281,720,1]|
+### Loading Model and Weights
+
+| Filename  |Input data shape|Output data shape
+|:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+|black_sea_unet.pt|([batch,72,131,296],[batch,72,131,296]) |[batch,131,296]|
+|pacific_ocean.pt|[batch,72,91,71,2]) |[batch,1,91,71,1]|
+|pacific_ocean_extendwind.pt|[batch,72,111,161,2]) |[batch,1,91,71,1]|
+|global_unet.pt|([batch,240,281,760],[batch,240,281,760]) |[batch,1,281,720,1]|
+|global_ef_checkpointX.pt|[batch,240,281,760,2]) |[batch,1,281,720,1]|
 
 
+The table above gives the inputs accepted by the pt file for the different regions, the pt file contains the weights and the model, you can load the model and weights directly using a code similar to the following
+
+```python
+
+# Load model
+model = torch.load("xxx.pt")
+model.eval()
+
+# Make predictions
+#For the earthformer model the UV component of the wind is placed in the last channel, so it is entered into the model as a whole
+predicted_SWH = model(WIND_UV)
+
+#For the u-net model winds the UV components are entered into the model separately, as shown in the table above
+predicted_SWH = model(WIND_U,WIND_V)
+```
+
+
+### Bias Correction with Linear Regression
+For the npz file with the suffix linear_regression, which contains the k, b values for the bias-corrected linear regression of the corresponding model, you can accomplish the correction with the following code，
+
+```python
+
+# Load linear regression model
+lmodel = np.load("xxx_linear_regression.npz")
+k = torch.reshape(torch.tensor(lmodel['k']), [1, 1, lat, lon, 1]).to(device)
+b = torch.reshape(torch.tensor(lmodel['b']), [1, 1, lat, lon, 1]).to(device)
+
+# Apply correction
+predicted_SWH = predicted_SWH * k + b
+```
+
+### Removing Land and Ice Regions
+For the npz file with the suffix mask in the global region are masks for land and ice regions, you can remove these regions with the following code
+
+```python
+
+# Load mask for land and ice regions
+loaded = np.load('xxx_mask.npz')
+mask = loaded['mask']
+mask = np.logical_not(mask)
+mask = mask[np.newaxis, :, :, np.newaxis]
+mask = torch.tensor(mask).to(device)
+
+# Apply mask to predicted_SWH
+predicted_SWH = torch.masked_fill(predicted_SWH, mask, 0)
+```
+
+### Model Ensemble
+The npz file with the suffix model_ensemble in the global region is the binary linear regression model used to blend the EarthFormer and Unet models, and you can implement model ensemble with the following code
+
+```python
+
+# Load binary regression file
+lmodel=np.load("xxx_model_ensemble.npz") 
+k=lmodel['k'] 
+b=lmodel['b']
+
+# Apply model ensemble
+Model_Ensemble_SWH = EarthFormer * k[:,:,0] +UNet *k[:,:,1] +b
+```
+It is worth noting that when performing these operations, please make sure that the tensor is shaped correctly to ensure that it can be broadcast and operated on correctly. The model input and output shapes can be found in the table above.
 
 ## License
 
