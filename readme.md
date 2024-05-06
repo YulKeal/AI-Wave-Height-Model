@@ -23,7 +23,7 @@ Applications of this model span a wide spectrum of domains, including but not li
 ## Study Region
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/f1.jpg" alt="SR" width="700"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/f1.jpg" alt="SR" width="600"/>
 </p>
 
 | Region| Latitude and longitude range|Spatial and temporal resolution|Source of data sets| Training data vintage division (Train/Val/Test)|
@@ -37,7 +37,7 @@ Applications of this model span a wide spectrum of domains, including but not li
 The animation below gives some of the results of a visual comparison of the AI model's predictions of SWH on the three study area test sets relying only on the wind field with the ERA5 data, and it is clear to see that the AI model's predictions are very accurate.
 
 <p align="center">
-  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif" alt="Global" width="700"/>
+  <img src="https://github.com/YulKeal/AI-Wave-Height-Model/blob/main/figure/global.gif" alt="Global" width="600"/>
 </p>
 
 <div align="center">
