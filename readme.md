@@ -17,8 +17,8 @@ Applications of this model span a wide spectrum of domains, including but not li
 
 | DataSet Name                                                                      | Parameters Used|
 |:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-|[ERA5 hourly data on single levels from 1940 to present](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview)   | Sea surface wave significant height|
-| [Black Sea Waves Analysis and Forecast](https://data.marine.copernicus.eu/product/BLKSEA_ANALYSISFORECAST_WAV_007_003/description) |10m u-component of wind、10m v-component of wind、Significant height of combined wind waves and swell|
+|[ERA5 hourly data on single levels from 1940 to present](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview)   | 10m u-component of wind、10m v-component of wind、Significant height of combined wind waves and swell|
+| [Black Sea Waves Analysis and Forecast](https://data.marine.copernicus.eu/product/BLKSEA_ANALYSISFORECAST_WAV_007_003/description) |Sea surface wave significant height|
 
 ## Study Region
 
