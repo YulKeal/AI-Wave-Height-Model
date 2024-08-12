@@ -1,7 +1,7 @@
 ## AI Wave Height Model
 [![License](https://img.shields.io/static/v1?label=License&message=Apache&color=<Yellow>)](https://github.com/huggingface/diffusion-models-class/blob/main/LICENSE) &nbsp;
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat-square&logo=PyTorch&logoColor=white)
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-WeightsFile-blue?logo=HuggingFace)](https://huggingface.co/YulKeal/AI-Wave-Height-Model/tree/main)
+[![Google Drive](https://img.shields.io/badge/GoogleDrive-WeightsFile-blue?logo=GoogleDrive)](https://drive.google.com/drive/folders/1vu4e-pS-PVtQ68FJxEPirnpw_67HZjX-?usp=sharing)
 
 AI Wave Height Model is an advanced deep learning framework that combines the power of U-Net architecture with Earthformer models to achieve accurate predictions of wave 
 heights in various marine regions, including the Black Sea, Northwest Pacific, and Global Ocean,using only wind field data.
