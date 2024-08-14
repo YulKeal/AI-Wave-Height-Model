@@ -457,7 +457,7 @@ def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--save', default='tmp_ear5_global', type=str)
     parser.add_argument('--gpus', default=1, type=int)
-    parser.add_argument('--cfg', default='cfg_hr0.5.yaml', type=str)
+    parser.add_argument('--cfg', default='cfg_global_ef.yaml', type=str)
 
     return parser
 
@@ -748,7 +748,7 @@ lat = 281
 lon =720
 
 
-model_path=r"./expend_wind_model_HR0.5"
+model_path=r"./model"
 from datetime import datetime
 
 

@@ -432,7 +432,7 @@ def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--save', default='tmp_ear5_global', type=str)
     parser.add_argument('--gpus', default=1, type=int)
-    parser.add_argument('--cfg', default='cfg_hr0.5.yaml', type=str)
+    parser.add_argument('--cfg', default='cfg_global_ef.yaml', type=str)
     parser.add_argument('--test', action='store_true')
     parser.add_argument('--ckpt_name', default=None, type=str,
                         help='The model checkpoint trained on N-body MovingMNIST.')
@@ -467,7 +467,7 @@ def Continuous_Inference(models, test_dataloader):
 
     count = 0
 
-    # 加载 .npz 文件
+
     loaded = np.load('mask_global_HRSWH.npz')
     mask = loaded['mask']
     mask = np.logical_not(mask)
@@ -476,7 +476,7 @@ def Continuous_Inference(models, test_dataloader):
 
     models_mse=np.zeros([len(models)+1,total_time])
 
-    # 进行单步预测
+
     with torch.no_grad():
         for test_data, target in tqdm(test_dataloader):
             batch_predictions = []
@@ -571,12 +571,11 @@ def NetInference():
 
     models_list = []
 
-    # 循环加载每个检查点并创建模型
+
     for model_name in model_names:
-        # 创建模型
+
         model = CuboidGlobalSWHModule(total_num_steps=100, save_dir=args.save, oc_file=args.cfg)
 
-        # 判断是否有 GPU 可用，如果有，则使用 DataParallel 进行多 GPU 训练
         if torch.cuda.is_available():
             print("Let's use", torch.cuda.device_count(), "GPUs!")
             model = DataParallel(model).cuda()
@@ -584,29 +583,12 @@ def NetInference():
         checkpoint = torch.load("D:\GitHub Code Upload\HuggingFace\global_ocean"+'\\'+model_name)
         model.load_state_dict(checkpoint['model_state_dict'])
 
-        # torch.save(model, "D:\GitHub Code Upload\HuggingFace\global_ef_checkpoint1.pt")
-        # model = torch.load("D:\GitHub Code Upload\HuggingFace\global_ef.pt").cuda()
+
         model.eval()
-        # 将模型添加到模型列表中
+
         models_list.append(model)
 
-    #
-    # model_names = ['global_ef_checkpoint1.pt',
-    #                'global_ef_checkpoint2.pt',
-    #                'global_ef_checkpoint3.pt',
-    #                'global_ef_checkpoint4.pt',
-    #                ]
-    #
-    # models_list = []
-    #
-    # # 循环加载每个检查点并创建模型
-    # for model_name in model_names:
-    #
-    #
-    #     model = torch.load("D:\GitHub Code Upload\HuggingFace\含模型\global_ocean\\"+model_name).cuda()
-    #     model.eval()
-    #     # 将模型添加到模型列表中
-    #     models_list.append(model)
+
 
 
 
@@ -642,13 +624,6 @@ def NetInference():
                  axis_lat=axis_lat,
                  axis_lon=axis_lon)
 
-        rmse_figure_data[rmse_figure_data == 0] = np.nan
-        correlation_coefficients[correlation_coefficients == 1] = np.nan
-        rrmse_figure_data[rrmse_figure_data == 0] = np.nan
-        bias[ bias == 0] = np.nan
-
-        del rmse_figure_data, rrmse_figure_data,correlation_coefficients, bias,out_data, label_data, wind_u, wind_v, wave_height, axis_lat, axis_lon, test_dataset,test_dataloader
-
 
 
 
@@ -670,7 +645,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
 
-ps="era5_global_HR0.5_4ptensemble"
+ps="era5_global_epochensemble"
 
 NetInference()
 
