@@ -379,10 +379,7 @@ def NetTrain():
             dataloader = DataLoader(dataset, batch_size=batch, shuffle=True, drop_last=True,num_workers=2)
             dataloader_length = len(dataloader)
 
-       
             print(f"Epoch:{epoch+1},Year:{year},DataShape{dataloader_length }")
-
-
 
 
             del wind_u, wind_v, wave_height
@@ -410,19 +407,20 @@ def NetTrain():
             print(
                 f"Epoch {epoch + 1}/{epochs}, Rmse Loss: {np.sqrt(running_loss /  dataloader_length)},True Loss:{true_loss /  dataloader_length}, Current Learning Rate: {current_lr}")
             writer.add_scalar('Learning Rate:', current_lr, global_step=epoch)
-            writer.add_scalar('Train Rmse Loss:', np.sqrt(running_loss /  dataloader_length), global_step=epoch)
+            writer.add_scalar('Train RMSE Loss:', np.sqrt(running_loss /  dataloader_length), global_step=epoch)
+            
             if epoch % 10 == 0:
                 writer.add_image('predict', outputs[0, :].unsqueeze(0), global_step=epoch)
                 writer.add_image('label', labels[0, :].unsqueeze(0), global_step=epoch)
 
                 rmse = torch.sqrt(torch.mean(torch.square(outputs - labels), 0)).detach().cpu().numpy()
 
-                # ??Matplotlib?????RMSE
+    
                 plt.figure()
                 cax = plt.matshow(rmse, cmap='viridis')  # ??'viridis' colormap????????????colormap
                 plt.colorbar(cax)
 
-                # ?Matplotlib?????TensorBoard
+               
                 writer.add_figure('RMSE Heatmap', plt.gcf(), global_step=epoch)
             del dataset,dataloader
 
@@ -468,10 +466,7 @@ def NetTrain():
                     logits = model(test_data[:,0,:],test_data[:,1,:])
                     logits=torch.masked_fill(logits, mask, 0)
                     target= torch.masked_fill( target, mask, 0)
-                    # ?? mask??? labels ??? 0 ???
-                   # mask = (target != 0)
-                    # ?? mask ? outputs?? outputs ??? mask ? True ?????? 0
-                    #logits = logits  * mask
+        
                     msevalue = mse(logits, target).item()
 
 
@@ -556,18 +551,13 @@ def continuous_inference(model, test_dataloader):
         for test_data, target in tqdm(test_dataloader):
             test_data, target = test_data.to(device), target.to(device)
 
-            out = model(test_data[:,0,:],test_data[:,1,:])  # ??????
+            out = model(test_data[:,0,:],test_data[:,1,:])  
             out=torch.unsqueeze(out,0)
-
 
             out[target == 0] = 0
             out[out<0] = 0
 
-
             labels=target
-
-
-    
 
             loss = torch.mean(torch.square(out - labels))
 
@@ -620,14 +610,11 @@ def NetInference():
 
 
 
-    # checkpoint = torch.load(model_path + '/1_0.004565339488434782_mid_era5_unet_global_.pt')
-    #
-    # model.load_state_dict(checkpoint['model_state_dict'])
-    #
-    # torch.save(model, "D:\GitHub Code Upload\HuggingFace\global_unet.pt")
-    model = torch.load("D:\GitHub Code Upload\HuggingFace\含模型\global_ocean\global_unet.pt")
+     checkpoint = torch.load('global_unet.pt')
+    
+     model.load_state_dict(checkpoint['model_state_dict'])
 
-    model.eval()
+     model.eval()
 
 
 
