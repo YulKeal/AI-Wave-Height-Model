@@ -417,7 +417,7 @@ def NetTrain():
 
     
                 plt.figure()
-                cax = plt.matshow(rmse, cmap='viridis')  # ??'viridis' colormap????????????colormap
+                cax = plt.matshow(rmse, cmap='viridis')  
                 plt.colorbar(cax)
 
                
@@ -439,8 +439,7 @@ def NetTrain():
         if epoch % 1 == 0:
 
 
-
-            # test
+            
             print("test")
             wind_u, wind_v, wave_height, _, _ = data_preprocess('2022')
 
@@ -477,10 +476,6 @@ def NetTrain():
 
                     test_step += 1
 
-
-
-
-
                 test_loss /= test_step
                 real_loss /= test_step
                 rmse  /= test_step
@@ -495,7 +490,7 @@ def NetTrain():
                 plt.figure()
                 cax = plt.matshow(rmse, cmap='viridis')  # ??'viridis' colormap????????????colormap
                 plt.colorbar(cax)
-                # ?Matplotlib?????TensorBoard
+
                 writer.add_figure('RMSE Test Heatmap', plt.gcf(), global_step=epoch)
                 plt.close()
 
@@ -607,16 +602,11 @@ def continuous_inference(model, test_dataloader):
 
 
 def NetInference():
-
-
-
      checkpoint = torch.load('global_unet.pt')
     
      model.load_state_dict(checkpoint['model_state_dict'])
 
      model.eval()
-
-
 
     for year in range(2020,2021): 
 
@@ -629,7 +619,6 @@ def NetInference():
 
         lat = axis_lat.shape[0]
         lon = axis_lon.shape[0]
-
  
         num_steps = 1  
 
@@ -656,9 +645,6 @@ def NetInference():
 
 
         del rmse_figure_data, rrmse_figure_data,correlation_coefficients, out_data, label_data, wind_u, wind_v, wave_height, axis_lat, axis_lon
-
-
-
 
 
 
