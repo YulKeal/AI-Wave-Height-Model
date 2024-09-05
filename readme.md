@@ -29,7 +29,7 @@ Applications of this model span a wide spectrum of domains, including but not li
 | Region| Latitude and longitude range|Spatial and temporal resolution|Source of data sets| Training data vintage division (Train/Val/Test)|
 |:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 |Black Sea (a)|40.5°N - 47°N<br>27.25°E - 42°E|0.05° x 0.05°,	Hourly|Wind data from ERA5, Wave data from BSWAF|2010-2019/2022/2020|
-|Northwest Pacific Ocean (b)|Wind: <br> 55°N - 0°<br>100°E - 180°E <br> Wave: <br> 45°N - 0°<br>100°E - 135°E|0.5° x 0.5°,	Hourly|ERA5|2000-2017/2022/2020|
+|Northwest Pacific Ocean (b)|Wind: <br> 55°N - 10°S<br>90°E - 179.5°E <br> Wave: <br> 45°N - 0°<br>100°E - 135°E|0.5° x 0.5°,	Hourly|ERA5|2000-2017/2022/2020|
 |Global region (c)|70°N - 70°S<br>All longitudes|0.5° x 0.5°,	Hourly|ERA5|2000-2017/2022/2020|
 
 ## Results
