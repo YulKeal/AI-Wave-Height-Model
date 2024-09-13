@@ -55,8 +55,8 @@ The animation below gives some of the results of a visual comparison of the AI m
 | Filename  |Input data shape|Output data shape
 |:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 |black_sea_unet.pt|([batch,72,131,296],[batch,72,131,296]) |[batch,131,296]|
-|pacific_ocean.pt|[batch,72,91,71,2]) |[batch,1,91,71,1]|
-|pacific_ocean_extendwind.pt|[batch,72,111,161,2]) |[batch,1,91,71,1]|
+|pacific_ocean.pt|[batch,120,91,71,2]) |[batch,1,91,71,1]|
+|pacific_ocean_extendwind.pt|[batch,120,111,161,2]) |[batch,1,91,71,1]|
 |global_unet.pt|([batch,240,281,760],[batch,240,281,760]) |[batch,1,281,720,1]|
 |global_ef_checkpointX.pt|[batch,240,281,760,2]) |[batch,1,281,720,1]|
 
